@@ -1,12 +1,14 @@
+/// SPDX-License-Identifier: MPL-2.0
 pragma experimental ABIEncoderV2;
 pragma solidity ^0.6.2;
 
 import "./BlockchainMock.sol";
 
+
 contract SlidingWindow is BlockchainMock{
 
     /* 
-     * Given a range of blocks, is this perido congested? 
+     * Given a range of blocks, we measure network congestion
      */
     function isPeriodCongested(uint startBlock, uint k, uint n, uint maximumBaseFee) public view returns (bool){
         require(n>=k, "N should be greater than (or equal to) K.");
